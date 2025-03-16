@@ -160,7 +160,7 @@ if (!Platform.isTV) {
 
     for (const job of jobs) {
       if (job.status === "completed") {
-        const downloadUrl = url + "download/" + job.id;
+        const downloadUrl = `${url}download/${job.id}`;
         const tasks = await BackGroundDownloader.checkForExistingDownloads();
 
         if (tasks.find((task: { id: string }) => task.id === job.id)) {
@@ -193,7 +193,7 @@ if (!Platform.isTV) {
                 title: job.item.Name,
                 body: "Download completed",
                 data: {
-                  url: `/downloads`,
+                  url: "/downloads",
                 },
               },
               trigger: null,
@@ -207,7 +207,7 @@ if (!Platform.isTV) {
                 title: job.item.Name,
                 body: "Download failed",
                 data: {
-                  url: `/downloads`,
+                  url: "/downloads",
                 },
               },
               trigger: null,
